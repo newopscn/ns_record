@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='ns_record',
-    version='1.0.4',
+    version='1.0.5',
     license="GPLv2",
     author='wangsir',
     author_email='wanglin@dbca.cn',

@@ -51,7 +51,7 @@ class TX_CNS:
             'recordId': recordId,
             'recordType': 'A',
             'recordLine': '默认',
-            'value': value
+            'value': str(value)
         }
         
         try:
@@ -81,11 +81,16 @@ def main():
     subDomain = sys.argv[2]
     value = sys.argv[3]
 
+    if value == "auto":
+        IPT = IP_TOOL(params={'url': 'http://api.newops.cn/ip'})
+        result = json.loads(IPT.my_wan_ip())
+        value = result['ip']
+
     cns = TX_CNS(secretId, secretKey, domain)
     record_id = cns.get_record_id(subDomain)
     code, ret = cns.modify_record(subDomain, record_id, value)
-    print ret
+    print "Update record: %s.%s A %s, %s!" % (subDomain, domain, value, ret)
 
 if __name__ == '__main__':
-    #main()
-    get_my_wan_ip()
+    main()
+    #get_my_wan_ip()
