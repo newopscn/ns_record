@@ -5,9 +5,9 @@ from setuptools import setup
 
 setup(
     name='ns_record',
-    version='1.0.0',
+    version='1.0.4',
     license="GPLv2",
-    author='wanglin',
+    author='wangsir',
     author_email='wanglin@dbca.cn',
     url='https://newops.cn/15077893526985.html',
     description=u'修改云厂商域名解析记录',
@@ -18,7 +18,8 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'ns_record_mod=ns_record:main'
+            'ns_mod_record = ns_record:main',
+            'ns_get_wanip = ns_record:get_my_wan_ip'
         ]
     },
     classifiers=[

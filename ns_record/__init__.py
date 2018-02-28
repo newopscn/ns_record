@@ -3,6 +3,17 @@
 
 from QcloudApi.qcloudapi import QcloudApi
 import json
+import requests
+
+class IP_TOOL:
+
+    def __init__(self, params=None):
+        self.params = params
+
+    def my_wan_ip(self):
+       url = self.params['url']
+       r = requests.get(url, timeout=5) 
+       return r.text
 
 class TX_CNS:
 
@@ -52,6 +63,9 @@ class TX_CNS:
 
         return res['code'], res['codeDesc']
 
+def get_my_wan_ip():
+    IPT = IP_TOOL(params={'url': 'http://api.newops.cn/ip'})
+    print IPT.my_wan_ip()
 
 def main():
     import sys
@@ -73,4 +87,5 @@ def main():
     print ret
 
 if __name__ == '__main__':
-    main()
+    #main()
+    get_my_wan_ip()
