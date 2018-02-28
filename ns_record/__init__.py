@@ -65,7 +65,7 @@ class TX_CNS:
 
 def get_my_wan_ip():
     IPT = IP_TOOL(params={'url': 'http://api.newops.cn/ip'})
-    print IPT.my_wan_ip()
+    print IPT.my_wan_ip(),
 
 def main():
     import sys
